@@ -1,19 +1,33 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 def merge(arrA, arrB):
-    elements = len(arrA) + len(arrB)
-    merged_arr = [0] * elements
-
-    # Your code here
-
-
+    #I don't understand the point of overcomplicating the operation by making an array of 0's    
+    merged_arr = []
+    # MARK: counts
+    left_count = len(arrA)
+    right_count = len(arrB)
+    left_i = 0
+    right_i = 0
+    #
+    while left_i < left_count and right_i < right_count:
+        if arrA[left_i] < arrB[right_i]:
+            merged_arr.append(arrA[left_i])
+            left_i += 1
+        else:
+            merged_arr.append(arrB[right_i])
+            right_i += 1
+    # fill any remaining elements since the above loop will end when either array is processed - then return
+    merged_arr += arrA[left_i:]
+    merged_arr += arrB[right_i:]
     return merged_arr
+
+print(merge([0,3,5], [1,2,4]))
 
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
     # Your code here
 
 
-    return arr
+    return merge(left, right)
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
 # utilize any extra memory
@@ -21,10 +35,11 @@ def merge_sort(arr):
 # or data structures; it can only re-use the memory it was given as input
 def merge_in_place(arr, start, mid, end):
     # Your code here
-
+    pass
 
 def merge_sort_in_place(arr, l, r):
     # Your code here
+    pass
 
 import math
 
